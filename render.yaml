@@ -1,0 +1,29 @@
+services:
+  - type: web
+    name: ai-company-researcher-backend
+    env: docker
+    dockerContext: .
+    dockerfilePath: backend/Dockerfile
+    plan: free
+    port: 8000
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: DEBUG
+        value: "false"
+      - key: MOCK_MODE
+        value: "false"
+      - key: PORT
+        value: "8000"
+      - key: HOST
+        value: "0.0.0.0"
+      - key: OPENROUTER_API_KEY
+        sync: true
+      - key: SERPER_API_KEY
+        sync: true
+      - key: GEMINI_API_KEY
+        sync: true
+      - key: OPENAI_API_KEY
+        sync: true
+      - key: TAVILY_API_KEY
+        sync: true
